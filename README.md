@@ -132,7 +132,8 @@ To start vault on your local system with consul as the backend, clone the repo a
 `cd docker`
 `docker-compose up`
 
-or you can follow the official Vault documentation and install vault
+or you can follow the official Vault documentation and install vault.
+
 
 ## Development
 

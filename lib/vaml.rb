@@ -5,6 +5,7 @@ require 'vaml/version'
 require 'vaml/vault_config'
 require 'vaml/configuration'
 require 'vaml/github'
+require 'vaml/approle'
 require 'vaml/railtie' if defined?(Rails)
 
 module Vaml
@@ -27,10 +28,21 @@ module Vaml
     end
 
     def write_string(key, value)
+      #
+      # write the value to a key with value=value. Note no support for
+      # multiple-value keys.
+      #
       write(key, {value: value})
     end
 
     def read_string(key)
+      #
+      # reads a key from the vault. This will later be replaced in the yaml file.
+      #
+      # jna: the assumption here is that all values are singletons
+      # stored with a key and value, named "value" I don't like this,
+      # as it stops you from using multiple-value keys in Vault. 
+      #
       read(key).data[:value]
     end
 
