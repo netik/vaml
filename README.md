@@ -48,6 +48,7 @@ or alternately, if you are using AppRole Authentication:
 
 
 ## Adding secrets
+
 The gem provides a rake task that you can use to add secrets. As a developer, if you want to add a new secret:
 
 * Use the following syntax in you YML. It is not necessary to follow the syntax, but it is highly recommended.
@@ -100,10 +101,17 @@ Vaml gives you back a ruby hash that looks like:
   "production" => {"aws"=>{"access_id"=>"ABC"}}
 }
 ```
-Note that this does not actually write back to the file, and it is upto you to use this result as you want.
-One strategy is to store these into the Rails configuration object when Rails initializes, so you will have it available to your process, but you won't need to write any secret anywhere. Bye bye to leaky ENV variables!
 
+Note that this does not actually write back to the file, and it is
+upto you to use this result as you want.  One strategy is to store
+these into the Rails configuration object when Rails initializes, so
+you will have it available to your process, but you won't need to
+write any secret anywhere. Bye bye to leaky ENV variables!
 
+Note that the key/value pairs must be named with the appropriate key
+that you are using and the value placed into the 'value' attribute of
+the key. Using any other value attribute name will cause data to be
+returned as nil.
 
 ### Policies
 
