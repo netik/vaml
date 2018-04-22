@@ -34,6 +34,18 @@ or
 
 `Vaml.configure(host: 'xxx', organization: 'xxx', token: 'xxx')`
 
+or alternately, if you are using AppRole Authentication:
+
+```
+  Vaml.configure(host: 'https://vaulthost:8200', 
+                 organization: 'someorg', 
+                 token: 'xxx', # NOTUSED
+                 ssl_verify: true)
+
+  vault_token = Vault.auth.approle('role_id',
+                                   'secret_id')
+```
+
 
 ## Adding secrets
 The gem provides a rake task that you can use to add secrets. As a developer, if you want to add a new secret:
