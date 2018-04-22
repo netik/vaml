@@ -108,9 +108,9 @@ these into the Rails configuration object when Rails initializes, so
 you will have it available to your process, but you won't need to
 write any secret anywhere. Bye bye to leaky ENV variables!
 
-Note that the key/value pairs must be named with the appropriate key
-that you are using and the value placed into the 'value' attribute of
-the key. Using any other value attribute name will cause data to be
+The key/value pairs must be named with the appropriate key that you
+are using and the value placed into the 'value' attribute of the
+key in vault. Using any other value attribute name will cause data to be
 returned as nil.
 
 ### Policies
